@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import StudentAPI from './api/service';
+import Table from './Table';
+import { useState } from 'react';
 
 function App() {
+  const [students, setStudents] = useState(initialStudents);
+
+  const delStud = (id) => {
+   if (StudentAPI.delete(id)) {
+      setStudents(students.filter((student) => student.id !== id));
+   }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div className='App'>
+      <Table students = {students} delStudent = {delStud} />
+   </div>
   );
 }
+
+const initialStudents = StudentAPI.all();
 
 export default App;
