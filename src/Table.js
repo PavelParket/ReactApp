@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = ({ students, delStudent}) => {
+const Table = ({students, delStudent}) => {
    return (
       <table>
       <thead>
@@ -15,7 +15,7 @@ const Table = ({ students, delStudent}) => {
           return (
             <tr key={index}>
               <td>{student.name}</td>
-              <td>{student.job}</td>
+              <td>{student.group}</td>
               <td>
                 <button onClick={() => delStudent(student.id)}>Delete</button>
               </td>
