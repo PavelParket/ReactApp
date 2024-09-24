@@ -1,13 +1,15 @@
 import { useState } from "react"
+import StudentAPI from "./api/service";
 
 export default function Form({ addStudent }) {
+   const [id, setId] =  useState(StudentAPI.students.length)
    const [name, setName] = useState("");
    const [group, setGroup] = useState("");
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      addStudent(name, group);
-      setName(""); setGroup("");
+      addStudent(id, name, group);
+      setId(id + 1); setName(""); setGroup("");
    };
 
    return (

@@ -14,9 +14,9 @@ function App() {
       }
    };
    
-   function addStud(name, group) {
+   function addStud(id, name, group) {
       const newStudent = {
-         id: StudentAPI.students.length + 1,
+         id: id + 1,
          name: name,
          group: group
       };
