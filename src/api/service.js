@@ -20,7 +20,7 @@ const StudentAPI = {
       return true;
    },
    add: function (student) {
-      this.students.push(student);
+      this.students = [...this.students, student];
       return student;
    },
    update: function (student) {

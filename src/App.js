@@ -21,7 +21,6 @@ function App() {
          group: group
       };
 
-      StudentAPI.add(newStudent);
       setStudents([...students, newStudent]);
    }
 
