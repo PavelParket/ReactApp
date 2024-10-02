@@ -1,9 +1,11 @@
 import './App.css';
 import StudentAPI from './api/service';
-import Table from './Table';
+import StudentTable from './StudentTable';
 import { useState } from 'react';
 import TicTacToe from './TicTacToe';
 import Form from './Form';
+
+const initialStudents = StudentAPI.all();
 
 function App() {
    const [students, setStudents] = useState(initialStudents);
@@ -13,7 +15,7 @@ function App() {
          setStudents(students.filter((student) => student.id !== id));
       }
    };
-   
+
    function addStud(id, name, group) {
       const newStudent = {
          id: id + 1,
@@ -25,19 +27,15 @@ function App() {
    }
 
    return (
-      <>
-         <div className='App'>
-            <Table students={students} delStudent={delStud} />
-            <br />
-            <TicTacToe />
-            <br />
-            <br />
-            <Form addStudent={addStud} />
-         </div>
-      </>
+      <div className='App'>
+         <StudentTable students={students} delStudent={delStud} />
+         {/* <br />
+         <TicTacToe />
+         <br />
+         <br />
+         <Form addStudent={addStud} /> */}
+      </div>
    );
 }
-
-const initialStudents = StudentAPI.all();
 
 export default App;
