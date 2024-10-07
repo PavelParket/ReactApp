@@ -1,8 +1,14 @@
+import { Box, Button } from '@mui/material';
 import { useState } from 'react';
-import "./TicTacToe.css"
 
 function Square({ value, onSquareClick }) {
-   return <button className='square' onClick={onSquareClick}>{value}</button>
+   return <Button
+      variant='outlined'
+      className='square'
+      onClick={onSquareClick}
+      sx={{ width: 25, height: 25 }}
+   >{value}</Button>
+   {/* <button className='square' onClick={onSquareClick}>{value}</button> */ }
 }
 
 function winner(squares) {
@@ -58,8 +64,16 @@ export default function TicTacToe() {
    else status = "Next player: " + (xIsNext ? "X" : "O");
 
    return (
-      <>
+      <Box component="section">
          <div className='status'>{status}</div>
+         <div className='firstLine'>
+            <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
+            <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
+            <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
+         </div>
+      </Box>
+      /* <>
+      <div className='status'>{status}</div>
          <div className='firstLine'>
             <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
             <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
@@ -76,6 +90,6 @@ export default function TicTacToe() {
             <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
          </div>
          <button className='reset' onClick={reset}>Reset</button>
-      </>
+      </> */
    );
-}
+};

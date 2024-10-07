@@ -2,8 +2,8 @@ import './App.css';
 import StudentAPI from './api/service';
 import StudentTable from './StudentTable';
 import { useState } from 'react';
-import TicTacToe from './TicTacToe';
 import Form from './Form';
+import TicTacToe from './TicTacToe';
 
 const initialStudents = StudentAPI.all();
 
@@ -29,11 +29,10 @@ function App() {
    return (
       <div className='App'>
          <StudentTable students={students} delStudent={delStud} />
-         {/* <br />
+         <br />
+         <Form addStudent={addStud} />
+         <br />
          <TicTacToe />
-         <br />
-         <br />
-         <Form addStudent={addStud} /> */}
       </div>
    );
 }

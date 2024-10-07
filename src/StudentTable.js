@@ -5,26 +5,28 @@ const StudentTable = ({ students, delStudent }) => {
 
    return (
       <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-         <TableHead>
-            <TableRow>
-               <TableCell align="center">Name</TableCell>
-               <TableCell align="center">Group</TableCell>
-               <TableCell align="center">Remove</TableCell>
-            </TableRow>
-         </TableHead>
-         <TableBody>
-            {students.map((student) => (
-               <TableRow key={student.id}>
-                  <TableCell align="center">{student.id}</TableCell>
-                  <TableCell align="center">{student.name}</TableCell>
-                  <TableCell align="center">{student.group}</TableCell>
-                  <Button variant="contained" onClick={() => delStudent(student.id)}>Delete</Button>
+         <Table sx={{ width: 300 }} aria-label="simple table">
+            <TableHead>
+               <TableRow>
+                  <TableCell align="center">Name</TableCell>
+                  <TableCell align="center">Group</TableCell>
+                  <TableCell align="center">Remove</TableCell>
                </TableRow>
-            ))}
-         </TableBody>
-      </Table>
-   </TableContainer>
+            </TableHead>
+            <TableBody>
+               {students.map((student) => (
+                  <TableRow key={student.id}>
+                     <TableCell align="center">{student.name}</TableCell>
+                     <TableCell align="center">{student.group}</TableCell>
+                     <TableCell align="center">
+                        <Button variant="contained" onClick={() => delStudent(student.id)}>Delete</Button>
+                     </TableCell>
+
+                  </TableRow>
+               ))}
+            </TableBody>
+         </Table>
+      </TableContainer>
    );
 };
 
