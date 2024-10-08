@@ -1,6 +1,6 @@
 import { useState } from "react"
 import StudentAPI from "./api/service";
-import { Button, Container, FormControl, InputLabel, OutlinedInput } from "@mui/material";
+import { Autocomplete, Button, Container, FormControl, getOffsetLeft, InputLabel, OutlinedInput, Paper } from "@mui/material";
 
 export default function Form({ addStudent }) {
    const [id, setId] = useState(StudentAPI.students.length)
@@ -14,7 +14,17 @@ export default function Form({ addStudent }) {
    };
 
    return (
-      <Container component="form" onSubmit={handleSubmit}>
+      <Container
+         component='form'
+         onSubmit={handleSubmit}
+         sx={{
+            border: 1,
+            borderColor: '#B5F2FC',
+            borderRadius: 2,
+            backgroundColor: '#B5F2FC',
+            display: "flex",
+            alignItems: 'center',
+         }}>
          <FormControl>
             <InputLabel htmlFor="component-name">Name</InputLabel>
             <OutlinedInput
@@ -23,9 +33,10 @@ export default function Form({ addStudent }) {
                value={name}
                onChange={(e) => setName(e.target.value)}
                required
+               sx={{ backgroundColor: 'white' }}
             />
          </FormControl>
-         <FormControl>
+         <FormControl sx={{ marginLeft: 1 }}>
             <InputLabel htmlFor="component-group">Group</InputLabel>
             <OutlinedInput
                id="component-group"
@@ -33,38 +44,20 @@ export default function Form({ addStudent }) {
                value={group}
                onChange={(e) => setGroup(e.target.value)}
                required
-               sx={{ marginLeft: 1 }}
+               sx={{ backgroundColor: 'white' }}
             />
          </FormControl>
          <Button
             type="submit"
             variant="contained"
-            color="success"
-            sx={{ width: 112, height: 56, marginLeft: 1 }}
+            sx={{
+               width: 80,
+               height: 45,
+               marginLeft: 1,
+               backgroundColor: '#6BF5C5',
+               fontSize: 18
+            }}
          >Add</Button>
       </Container>
-      /* <>
-         <form onSubmit={handleSubmit}>
-            <div>
-               <label htmlFor="name">Name: </label>
-               <input
-                  type="text"
-                  className="inputName"
-                  placeholder="Your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required></input>
-               <label htmlFor="group">Group: </label>
-               <input
-                  type="text"
-                  className="inputGroup"
-                  placeholder="Your group"
-                  value={group}
-                  onChange={(e) => setGroup(e.target.value)}
-                  required></input>
-               <button type="submit">Add</button>
-            </div>
-         </form>
-      </> */
    );
 };

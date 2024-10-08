@@ -5,7 +5,7 @@ const StudentTable = ({ students, delStudent }) => {
 
    return (
       <TableContainer component={Paper}>
-         <Table sx={{ width: 300 }} aria-label="simple table">
+         <Table sx={{ width: 400 }} aria-label="simple table">
             <TableHead>
                <TableRow>
                   <TableCell align="center">Name</TableCell>
