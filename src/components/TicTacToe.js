@@ -1,4 +1,4 @@
-import { autocompleteClasses, Box, Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -81,10 +81,10 @@ export default function TicTacToe() {
             <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
          </div>
          <Button
-         className='reset'
-         onClick={reset}
-         variant='contained'
-         sx={{ marginTop: 1, backgroundColor: 'grey' }}
+            className='reset'
+            onClick={reset}
+            variant='contained'
+            sx={{ marginTop: 1, backgroundColor: 'grey' }}
          >Reset
          </Button>
       </Box>

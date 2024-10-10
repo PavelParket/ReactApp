@@ -3,14 +3,14 @@ import { Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell
 import CardInfo from "./CardInfo";
 
 const StudentTable = ({ students, delStudent }) => {
-   const [ selectedStudent, setSelectedStudent ] = useState(null);
+   const [selectedStudent, setSelectedStudent] = useState(null);
 
    const selectStudent = (student) => {
       setSelectedStudent(student);
    };
 
    return (
-      <TableContainer component={Paper} sx={{backgroundColor: "#e0f2f1"}}>
+      <TableContainer component={Paper} sx={{ backgroundColor: "#e0f2f1" }}>
          <Table sx={{ width: 400, float: "left", marginLeft: 7 }} aria-label="simple table">
             <TableHead>
                <TableRow>

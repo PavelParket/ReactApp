@@ -1,6 +1,6 @@
 import { useState } from "react"
-import StudentAPI from "./api/service";
-import { Autocomplete, Button, Container, FormControl, getOffsetLeft, InputLabel, OutlinedInput, Paper } from "@mui/material";
+import StudentAPI from "../api/service";
+import { Button, Container, FormControl, InputLabel, OutlinedInput } from "@mui/material";
 
 export default function Form({ addStudent }) {
    const [id, setId] = useState(StudentAPI.students.length)

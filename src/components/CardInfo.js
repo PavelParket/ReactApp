@@ -2,7 +2,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 
 function CardInfo({ student }) {
    return (
-      <Card  sx={{backgroundColor: "#c5cae9"}}>
+      <Card sx={{ backgroundColor: "#c5cae9" }}>
          <CardContent>
             <Typography sx={{ fontSize: 14 }}>
                ID: {student.id}

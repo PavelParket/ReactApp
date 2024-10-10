@@ -1,14 +1,21 @@
 import './App.css';
 import StudentAPI from './api/service';
-import StudentTable from './StudentTable';
+import StudentTable from './components/StudentTable';
 import { useState } from 'react';
-import Form from './Form';
-import TicTacToe from './TicTacToe';
+import Form from './components/Form';
+import TicTacToe from './components/TicTacToe';
 
 const initialStudents = StudentAPI.all();
 
+const userAccounts = {
+   user1: { username: 'user1', password: 'password1' },
+   user2: { username: 'user2', password: 'password2' },
+   user3: { username: 'user3', password: 'password3' },
+};
+
 function App() {
    const [students, setStudents] = useState(initialStudents);
+   const [loggedInUser, setLoggedInUser] = useState(null);
 
    const delStud = (id) => {
       if (StudentAPI.delete(id)) {
@@ -24,6 +31,10 @@ function App() {
       };
 
       setStudents([...students, newStudent]);
+   }
+
+   const handleLogin = (username) => {
+      setLoggedInUser(username);
    }
 
    return (
