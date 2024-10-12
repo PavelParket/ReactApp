@@ -20,7 +20,7 @@ function Login({ onLogin, userAccounts }) {
    return (
       <Grid2 container justifyContent="center" alignItems="center" style={{ height: '100vh' }}>
          <Paper elevation={10} style={{ padding: 20, width: 300 }}>
-            <Typography variant="h5" align="center">Authorization</Typography>
+            <Typography variant="h5" align="center" sx={{marginBottom: 2}}>Authorization</Typography>
             <form onSubmit={handleSubmit}>
                <TextField 
                   label="Username" 
@@ -29,6 +29,7 @@ function Login({ onLogin, userAccounts }) {
                   required 
                   value={username} 
                   onChange={(e) => setUsername(e.target.value)} 
+                  sx={{marginBottom: 2}}
                />
                <TextField 
                   label="Password" 
@@ -40,7 +41,7 @@ function Login({ onLogin, userAccounts }) {
                   onChange={(e) => setPassword(e.target.value)} 
                />
                {error && <Typography color="error">{error}</Typography>}
-               <Button type="submit" color="primary" variant="contained" fullWidth style={{ marginTop: 10 }}>
+               <Button type="submit" color="primary" variant="contained" fullWidth style={{ marginTop: 20 }}>
                   Sign in
                </Button>
             </form>

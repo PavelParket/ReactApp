@@ -43,6 +43,6 @@ const StudentTable = ({ students, delStudent }) => {
          </Grid2>
       </TableContainer>
    );
-};
+}
 
 export default StudentTable;
