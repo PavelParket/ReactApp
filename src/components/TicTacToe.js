@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, Grid2 } from '@mui/material';
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -63,30 +63,32 @@ export default function TicTacToe() {
    else status = "Next player: " + (xIsNext ? "X" : "O");
 
    return (
-      <Box component="section" sx={{ width: 200 }}>
-         <div className='status' style={{ textAlign: 'center' }}>{status}</div>
-         <div className='firstLine'>
-            <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-            <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-            <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
-         </div>
-         <div className='secondLine'>
-            <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-            <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-            <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
-         </div>
-         <div className='thirdLine'>
-            <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-            <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-            <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
-         </div>
-         <Button
-            className='reset'
-            onClick={reset}
-            variant='contained'
-            sx={{ marginTop: 1, backgroundColor: 'grey' }}
-         >Reset
-         </Button>
-      </Box>
+      <Grid2 container justifyContent="center" alignItems="center">
+         <Box component="section" sx={{ width: 200 }}>
+            <div className='status' style={{ textAlign: 'center' }}>{status}</div>
+            <div className='firstLine'>
+               <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
+               <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
+               <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
+            </div>
+            <div className='secondLine'>
+               <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
+               <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
+               <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
+            </div>
+            <div className='thirdLine'>
+               <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
+               <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
+               <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
+            </div>
+            <Button
+               className='reset'
+               onClick={reset}
+               variant='contained'
+               sx={{ marginTop: 1, backgroundColor: 'grey' }}
+            >Reset
+            </Button>
+         </Box>
+      </Grid2>
    );
 };

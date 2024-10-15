@@ -36,7 +36,7 @@ const StudentTable = ({ students, delStudent }) => {
                ))}
             </TableBody>
          </Table>
-         <Grid2 minWidth={150} maxWidth={250} sx={{ float: "right" }} marginRight={55} marginTop={10}>
+         <Grid2 minWidth={150} maxWidth={250} sx={{ float: "right" }} marginRight={45} marginTop={10}>
             <Grid2 container display="flex" justifyContent="center" alignItems="center">
                {selectedStudent && <CardInfo student={selectedStudent} />}
             </Grid2>

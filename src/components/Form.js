@@ -18,6 +18,7 @@ export default function Form({ addStudent }) {
          component='form'
          onSubmit={handleSubmit}
          sx={{
+            width: 500,
             border: 1,
             borderColor: '#B5F2FC',
             borderRadius: 2,
@@ -33,7 +34,7 @@ export default function Form({ addStudent }) {
                value={name}
                onChange={(e) => setName(e.target.value)}
                required
-               sx={{ backgroundColor: 'white' }}
+               sx={{ width: 150, backgroundColor: 'white' }}
             />
          </FormControl>
          <FormControl sx={{ marginLeft: 1 }}>
@@ -44,7 +45,7 @@ export default function Form({ addStudent }) {
                value={group}
                onChange={(e) => setGroup(e.target.value)}
                required
-               sx={{ backgroundColor: 'white' }}
+               sx={{ width: 150, backgroundColor: 'white' }}
             />
          </FormControl>
          <Button
@@ -53,7 +54,7 @@ export default function Form({ addStudent }) {
             sx={{
                width: 80,
                height: 45,
-               marginLeft: 1,
+               marginLeft: 3,
                backgroundColor: '#6BF5C5',
                fontSize: 18
             }}
