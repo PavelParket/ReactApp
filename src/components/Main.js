@@ -2,11 +2,11 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "./Login";
 import StudTablComp from "./StudTablComp";
 import TicTacToe from "./TicTacToe";
-import { useLoginContext } from "../MyProvider";
 import HomePage from "./HomePage";
+import { useSelector } from "react-redux";
 
 export default function Main() {
-   const { loggedInUser } = useLoginContext();
+   const loggedInUser = useSelector(state => state.users.loggedInUser);
 
    return (
       <main>

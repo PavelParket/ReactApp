@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Button, Grid2, Paper, TextField, Typography } from "@mui/material";
-import { useLoginContext, userAccounts } from "../MyProvider";
+import { useDispatch, useSelector } from "react-redux";
+import { signin } from "../actions/userActions";
 
 function Login() {
-   const {onLogin} = useLoginContext();
+   const dispatch = useDispatch();
+   const userAccounts = useSelector(state => state.users.userAccounts)
    const [username, setUsername] = useState('');
    const [password, setPassword] = useState('');
    const [error, setError] = useState('');
@@ -13,7 +15,7 @@ function Login() {
       setError('');
 
       if (userAccounts[username] && userAccounts[username].password === password) {
-         onLogin(username);
+         dispatch(signin(username))
       } else {
          setError('Invalid username or password');
       }

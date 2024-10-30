@@ -1,9 +1,15 @@
 import { Button, Grid2 } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useLoginContext } from "../MyProvider";
+import { signout } from "../actions/userActions";
 
 export default function Header() {
-   const { loggedInUser, onLogout } = useLoginContext();
+   const dispatch = useDispatch();
+   const loggedInUser = useSelector(state => state.users.loggedInUser);
+
+   const handleSignOut = () => {
+      dispatch(signout());
+   }
 
    return (
       <header>
@@ -26,7 +32,7 @@ export default function Header() {
                <Grid2 size={1}>
                   <Button
                      variant="outlined"
-                     onClick={onLogout}
+                     onClick={handleSignOut}
                      sx={{ color: "#ef5350", borderColor: "#ef5350" }}
                   >Sign out</Button>
                </Grid2>
