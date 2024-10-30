@@ -1,34 +1,21 @@
-import { useState } from "react";
-import StudentAPI from '../api/service';
 import StudentTable from "./StudentTable";
 import Form from "./Form";
-
-const initialStudents = StudentAPI.all();
+import { useDispatch, useSelector } from "react-redux";
+import { deleteStudent } from '../actions/studActions';
 
 export default function StudTablComp() {
-   const [students, setStudents] = useState(initialStudents);
+   const dispatch = useDispatch();
+   const students = useSelector(state => state.students.students);
 
-   const delStud = (id) => {
-      if (StudentAPI.delete(id)) {
-         setStudents(students.filter((student) => student.id !== id));
-      }
+   const handleDelete = (id) => {
+      dispatch(deleteStudent(id));
    };
-
-   function addStud(id, name, group) {
-      const newStudent = {
-         id: id + 1,
-         name: name,
-         group: group
-      };
-
-      setStudents([...students, newStudent]);
-   }
 
    return (
       <div className="student_table">
-         <StudentTable students={students} delStudent={delStud} />
+         <StudentTable students={students} delStudent={handleDelete} />
          <br />
-         <Form addStudent={addStud} />
+         <Form />
       </div>
    );
 }

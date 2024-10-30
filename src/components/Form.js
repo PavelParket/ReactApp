@@ -1,16 +1,28 @@
 import { useState } from "react"
-import StudentAPI from "../api/service";
 import { Button, Container, FormControl, InputLabel, OutlinedInput } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { addStudent } from "../actions/studActions";
 
-export default function Form({ addStudent }) {
-   const [id, setId] = useState(StudentAPI.students.length)
+export default function Form() {
+   const dispatch = useDispatch();
+   const students = useSelector(state => state.students.students);
    const [name, setName] = useState("");
    const [group, setGroup] = useState("");
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      addStudent(id, name, group);
-      setId(id + 1); setName(""); setGroup("");
+
+      const newId = students.length > 0 ? Math.max(...students.map(student => student.id)) + 1 : 1;
+
+      const newStudent = {
+         id: newId,
+         name,
+         group,
+      };
+
+      dispatch(addStudent(newStudent));
+      setName("");
+      setGroup("");
    };
 
    return (

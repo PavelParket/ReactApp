@@ -7,7 +7,7 @@ export default function HomePage() {
             Welcome to HomePage!
          </Typography>
          <Typography variant="body1" align="center">
-            Please, choose anouther page
+            Please, choose anouwuther page
          </Typography>
       </div>
    );
