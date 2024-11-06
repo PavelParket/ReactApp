@@ -1,4 +1,4 @@
-import { SIGNIN, SIGNOUT } from "../actions/userActions";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
    loggedInUser: null,
@@ -9,7 +9,7 @@ const initialState = {
    },
 };
 
-const userReducer = (state = initialState, action) => {
+/* const userReducer = (state = initialState, action) => {
    switch (action.type) {
       case SIGNIN:
          return { ...state, loggedInUser: action.payload };
@@ -20,4 +20,21 @@ const userReducer = (state = initialState, action) => {
    }
 };
 
-export default userReducer;
+export default userReducer; */
+
+const userSlice = createSlice({
+   name: "user",
+   initialState,
+   reducers: {
+      signIn(state, action) {
+         state.loggedInUser = action.payload;
+      },
+      signOut(state) {
+         state.loggedInUser = null;
+      },
+   },
+});
+
+export const { signIn, signOut } = userSlice.actions;
+
+export default userSlice.reducer;
