@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Grid2, Paper, TextField, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { signIn } from "../reducers/userReducer";
+import { signIn } from "../../reducers/userReducer";
 
 function Login() {
    const dispatch = useDispatch();

@@ -1,0 +1,44 @@
+header {
+   margin: 0;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+   display: flex;
+   align-items: center;
+   background-color: #3f51b585;
+}
+
+.logo {
+   width: 50px;
+   height: 50px;
+   margin-left: 10px;
+   margin-right: 15px;
+}
+
+nav {
+   display: flex;
+}
+
+.links {
+   list-style-type: none;
+   display: flex;
+   margin: 0;
+   padding: 0;
+}
+
+.links li {
+   margin: 0 15px;
+}
+
+.links a {
+   text-decoration: none;
+   color: white;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.links a:hover {
+   color: rgb(251, 201, 140);
+   cursor: pointer;
+}

@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Login from "./Login";
-import StudTablComp from "./StudTablComp";
-import TicTacToe from "./TicTacToe";
-import HomePage from "./HomePage";
+import Login from "../body/Login";
+import StudTablComp from "../body/StudTablComp";
+import TicTacToe from "../body/TicTacToe";
+import HomePage from "../body/HomePage";
 import { useSelector } from "react-redux";
 
 export default function Main() {

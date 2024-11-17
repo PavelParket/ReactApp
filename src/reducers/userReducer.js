@@ -9,19 +9,6 @@ const initialState = {
    },
 };
 
-/* const userReducer = (state = initialState, action) => {
-   switch (action.type) {
-      case SIGNIN:
-         return { ...state, loggedInUser: action.payload };
-      case SIGNOUT:
-         return { ...state, loggedInUser: null };
-      default:
-         return state;
-   }
-};
-
-export default userReducer; */
-
 const userSlice = createSlice({
    name: "user",
    initialState,

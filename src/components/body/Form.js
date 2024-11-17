@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Button, Container, FormControl, InputLabel, OutlinedInput } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { addStudent } from "../actions/studActions";
+import { addStudent } from "../../actions/studActions";
 
 export default function Form() {
    const dispatch = useDispatch();
