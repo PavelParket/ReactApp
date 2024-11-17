@@ -1,0 +1,31 @@
+.card {
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+   background-color: #bcff9b;
+   padding: 10px;
+}
+
+.cover-image {
+   width: 40%;
+   height: 150px;
+   object-fit: cover;
+   background-color: aqua;
+   border-radius: 10px;
+}
+
+.book-details {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 55%;
+   margin-left: 5%;
+}
+
+.book-details a {
+   text-decoration: none;
+}
+
+.detail {
+   color: black;
+   margin: 7px 0;
+}

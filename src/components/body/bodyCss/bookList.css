@@ -1,0 +1,16 @@
+.book-list-container {
+   font-family: Arial, Helvetica, sans-serif;
+   width: 900px;
+   display: flex;
+   flex-flow: wrap;
+   justify-content: center;
+   margin: 0;
+   background-color: #f0f0f0;
+   padding: 10px;
+}
+
+.book-card {
+   width: 48%;
+   margin: 9px 1%;
+   text-decoration: none;
+}

@@ -1,4 +1,4 @@
-import "./Header.css"
+import "./headerCss/header.css"
 import logo from "./logo.svg"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -20,6 +20,7 @@ export default function Header() {
                <ul className="links">
                   <li><Link to="/stud_tabl">Students Table</Link></li>
                   <li><Link to="/tictactoe">TicTacToe</Link></li>
+                  <li><Link to="book-list/">Book List</Link></li>
                   {!loggedInUser && (
                      <li><Link to="/login">Sign In</Link></li>
                   )}
