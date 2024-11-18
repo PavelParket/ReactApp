@@ -1,12 +1,12 @@
 import "./headerCss/header.css"
-import logo from "./logo.svg"
+import logo from "./headerCss/logo.svg"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signOut } from "../../reducers/userReducer";
 
 export default function Header() {
    const dispatch = useDispatch();
-   const loggedInUser = useSelector(state => state.users.loggedInUser);
+   const user = useSelector(state => state.users.user);
 
    const handleSignOut = () => {
       dispatch(signOut());
@@ -21,10 +21,10 @@ export default function Header() {
                   <li><Link to="/stud_tabl">Students Table</Link></li>
                   <li><Link to="/tictactoe">TicTacToe</Link></li>
                   <li><Link to="book-list/">Book List</Link></li>
-                  {!loggedInUser && (
+                  {!user.loggedIn && (
                      <li><Link to="/login">Sign In</Link></li>
                   )}
-                  {loggedInUser && (
+                  {user.loggedIn && (
                      <li><Link to="/" onClick={handleSignOut}>Sign Out</Link></li>
                   )}
                </ul>

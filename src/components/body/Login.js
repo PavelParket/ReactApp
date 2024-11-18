@@ -1,22 +1,24 @@
 import { useState } from "react";
 import { Button, Grid2, Paper, TextField, Typography } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { signIn } from "../../reducers/userReducer";
+import { login } from "../../api/api";
 
 function Login() {
    const dispatch = useDispatch();
-   const userAccounts = useSelector(state => state.users.userAccounts)
    const [username, setUsername] = useState('');
    const [password, setPassword] = useState('');
    const [error, setError] = useState('');
 
-   const handleSubmit = (e) => {
+   const handleSubmit = async (e) => {
       e.preventDefault();
       setError('');
 
-      if (userAccounts[username] && userAccounts[username].password === password) {
-         dispatch(signIn(username))
-      } else {
+      try {
+         const { token } = await login(username, password);
+         const tokenExpiry = Date.now() + 5 * 60 * 1000;
+         dispatch(signIn({ username, token, tokenExpiry }));
+      } catch (error) {
          setError('Invalid username or password');
       }
    };

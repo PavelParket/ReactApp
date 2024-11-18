@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-   loggedInUser: null,
-   userAccounts: {
-      user1: { username: 'user1', password: 'password1' },
-      user2: { username: 'user2', password: 'password2' },
-      user3: { username: 'user3', password: 'password3' },
+   user: {
+      loggedIn: false,
+      username: null,
+      role: null,
+      token: null,
+      tokenExpiry: null,
    },
 };
 
@@ -14,14 +15,32 @@ const userSlice = createSlice({
    initialState,
    reducers: {
       signIn(state, action) {
-         state.loggedInUser = action.payload;
+         const { username, role, token, tokenExpiry } = action.payload;
+         state.user.loggedIn = true;
+         state.user.username = username;
+         state.user.role = role;
+         state.user.token = token;
+         state.user.tokenExpiry = tokenExpiry;
       },
       signOut(state) {
-         state.loggedInUser = null;
+         state.user.loggedIn = false;
+         state.user.username = null;
+         state.user.role = null;
+         state.user.token = null;
+         state.tokenExpiry = null;
+      },
+      isValidToken(state) {
+         if (state.tokenExpiry && Date.now() > state.tokenExpiry) {
+            state.user.loggedIn = true;
+            state.user.username = null;
+            state.user.role = null;
+            state.user.token = null;
+            state.tokenExpiry = null;
+         }
       },
    },
 });
 
-export const { signIn, signOut } = userSlice.actions;
+export const { signIn, signOut, isValidToken } = userSlice.actions;
 
 export default userSlice.reducer;
