@@ -3,12 +3,16 @@ import { Button, Grid2, Paper, TextField, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { signIn } from "../../reducers/userReducer";
 import { login } from "../../api/api";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Login() {
    const dispatch = useDispatch();
    const [username, setUsername] = useState('');
    const [password, setPassword] = useState('');
    const [error, setError] = useState('');
+   const location = useLocation();
+   const navigate = useNavigate();
+   const redirectPath = location.state?.from || "/";
 
    const handleSubmit = async (e) => {
       e.preventDefault();
@@ -18,6 +22,7 @@ function Login() {
          const { token, role } = await login(username, password);
          const tokenExpiry = Date.now() + 5 * 60 * 1000;
          dispatch(signIn({ username, role, token, tokenExpiry }));
+         navigate(redirectPath);
       } catch (error) {
          setError('Invalid username or password');
       }

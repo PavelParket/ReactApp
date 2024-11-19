@@ -1,15 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-   books: [
-      {
-         id: 3,
-         name: "To Kill a Mockingbird",
-         genre: "Fiction",
-         author: "Harper Lee",
-         isbn: "978-0-0611-2008-4",
-         description: "A novel about racial injustice in the Deep South."
-      },
+   /* books: [
       {
          id: 4,
          name: "Pride and Prejudice",
@@ -50,7 +42,7 @@ const initialState = {
          isbn: "978-0-0608-5052-4",
          description: "A dystopian novel set in a technologically advanced future."
       }
-   ],
+   ], */
 };
 
 const bookSlice = createSlice({

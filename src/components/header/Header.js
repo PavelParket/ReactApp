@@ -18,7 +18,7 @@ export default function Header() {
             <Link to="/"><img src={logo} alt="Logo" className="logo" /></Link>
             <nav>
                <ul className="links">
-                  <li><Link to="/stud_tabl">Students Table</Link></li>
+                  <li><Link to="/stud-table">Students Table</Link></li>
                   <li><Link to="/tictactoe">TicTacToe</Link></li>
                   <li><Link to="book-list/">Book List</Link></li>
                   {!user.loggedIn && (
