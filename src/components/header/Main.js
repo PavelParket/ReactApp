@@ -7,6 +7,7 @@ import HomePage from "../body/HomePage";
 import { useSelector } from "react-redux";
 import BookList from "../body/BookList";
 import Book from "../body/Book";
+import AdminPage from "../body/AdminPage";
 
 export default function Main() {
    const user = useSelector(state => state.users.user);
@@ -28,7 +29,10 @@ export default function Main() {
 
             <Route
                path="/book/:id"
-               element={user.loggedIn ? <Book /> : <Navigate to="/login" />} />
+               element={user.loggedIn ? <Book /> : <Navigate to="/login" />}
+            />
+            <Route path="/admin" element={<AdminPage />}
+            />
          </Routes>
       </main>
    );

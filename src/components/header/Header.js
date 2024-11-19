@@ -24,6 +24,9 @@ export default function Header() {
                   {!user.loggedIn && (
                      <li><Link to="/login">Sign In</Link></li>
                   )}
+                  {(user.role === "ADMIN") && (
+                     <li><Link to="/admin">Admin</Link></li>
+                  )}
                   {user.loggedIn && (
                      <li><Link to="/" onClick={handleSignOut}>Sign Out</Link></li>
                   )}

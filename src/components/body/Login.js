@@ -15,9 +15,9 @@ function Login() {
       setError('');
 
       try {
-         const { token } = await login(username, password);
+         const { token, role } = await login(username, password);
          const tokenExpiry = Date.now() + 5 * 60 * 1000;
-         dispatch(signIn({ username, token, tokenExpiry }));
+         dispatch(signIn({ username, role, token, tokenExpiry }));
       } catch (error) {
          setError('Invalid username or password');
       }

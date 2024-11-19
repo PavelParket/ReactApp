@@ -3,22 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
    books: [
       {
-         id: 1,
-         name: "The Great Gatsby",
-         genre: "Fiction",
-         author: "F. Scott Fitzgerald",
-         isbn: "978-0-7432-7356-5",
-         description: "A novel about the American dream."
-      },
-      {
-         id: 2,
-         name: "1984",
-         genre: "Dystopian",
-         author: "George Orwell",
-         isbn: "978-0-4515-2493-5",
-         description: "A novel about totalitarianism and surveillance."
-      },
-      {
          id: 3,
          name: "To Kill a Mockingbird",
          genre: "Fiction",

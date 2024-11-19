@@ -20,3 +20,19 @@ export const getBookById = async (id, token) => {
    });
    return response.data;
 }
+
+export const createBook = async (book, token) => {
+   try {
+      const response = await axios.post(`${API_URL}/book`, book, {
+         headers: {
+            Authorization: `Bearer ${token}`
+         }
+      });
+      return response.data;
+   } catch (error) {
+      if (error.response && error.response.status === 500) {
+         throw new Error(error.response.data);
+      }
+      throw new Error("Error!");
+   }
+}
