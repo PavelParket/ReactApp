@@ -30,7 +30,7 @@ export const createBook = async (book, token) => {
       });
       return response.data;
    } catch (error) {
-      if (error.response && error.response.status === 500) {
+      if (error.response?.status === 500) {
          throw new Error(error.response.data);
       }
       throw new Error("Error!");

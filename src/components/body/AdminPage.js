@@ -78,7 +78,7 @@ export default function AdminPage() {
                   onChange={(description) => setDescription(description.target.value)}
                   required
                />
-               <p>{(description && description.length) || 0}/255</p>
+               <p>{(description?.length) || 0}/255</p>
             </div>
             <div>
                <label htmlFor="author">Author:</label>
