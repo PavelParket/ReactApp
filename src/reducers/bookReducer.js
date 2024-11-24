@@ -3,22 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
    /* books: [
       {
-         id: 4,
-         name: "Pride and Prejudice",
-         genre: "Romance",
-         author: "Jane Austen",
-         isbn: "978-0-1414-3951-8",
-         description: "A romantic novel that critiques the British landed gentry."
-      },
-      {
-         id: 5,
-         name: "The Catcher in the Rye",
-         genre: "Fiction",
-         author: "J.D. Salinger",
-         isbn: "978-0-3167-6948-8",
-         description: "A story about teenage rebellion and alienation."
-      },
-      {
          id: 6,
          name: "The Hobbit",
          genre: "Fantasy",

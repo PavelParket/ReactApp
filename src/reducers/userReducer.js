@@ -16,26 +16,47 @@ const userSlice = createSlice({
    reducers: {
       signIn(state, action) {
          const { username, role, token, tokenExpiry } = action.payload;
-         state.user.loggedIn = true;
+         Object.assign(state.user, {
+            loggedIn: true,
+            username,
+            role,
+            token,
+            tokenExpiry,
+         });
+         /* state.user.loggedIn = true;
          state.user.username = username;
          state.user.role = role;
          state.user.token = token;
-         state.user.tokenExpiry = tokenExpiry;
+         state.user.tokenExpiry = tokenExpiry; */
       },
       signOut(state) {
-         state.user.loggedIn = false;
+         Object.assign(state.user, {
+            loggedIn: false,
+            username: null,
+            role: null,
+            token: null,
+            tokenExpiry: null,
+         });
+         /* state.user.loggedIn = false;
          state.user.username = null;
          state.user.role = null;
          state.user.token = null;
-         state.tokenExpiry = null;
+         state.tokenExpiry = null; */
       },
       isValidToken(state) {
          if (state.tokenExpiry && Date.now() > state.tokenExpiry) {
-            state.user.loggedIn = true;
+            Object.assign(state.user, {
+               loggedIn: false,
+               username: null,
+               role: null,
+               token: null,
+            });
+            state.tokenExpiry = null;
+            /* state.user.loggedIn = true;
             state.user.username = null;
             state.user.role = null;
             state.user.token = null;
-            state.tokenExpiry = null;
+            state.tokenExpiry = null; */
          }
       },
    },
