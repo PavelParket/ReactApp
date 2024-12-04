@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 
 export default function HomePage() {
    //const user = useSelector(state => state.users.user);
+   //console.log(user);
 
    return (
       <div>

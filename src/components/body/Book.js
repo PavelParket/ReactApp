@@ -2,18 +2,18 @@ import { useParams } from "react-router-dom";
 import "./bodyCss/book.css"
 import { useEffect, useState } from "react";
 import { getBookById } from "../../api/api";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 
 export default function Book() {
    const { id } = useParams();
    const [book, setBook] = useState(null);
    const [error, setError] = useState(null);
-   const user = useSelector(state => state.users.user);
+   //const user = useSelector(state => state.users.user);
 
    useEffect(() => {
       const printBook = async () => {
          try {
-            const book = await getBookById(id, user.token);
+            const book = await getBookById(id/* , user.token */);
             setBook(book);
          } catch (error) {
             setError("Book not found");
@@ -21,7 +21,7 @@ export default function Book() {
       };
 
       printBook();
-   }, [id, user.token]);
+   }, [id/* , user.token */]);
 
    if (error) {
       return <p>{error}</p>;

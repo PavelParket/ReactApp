@@ -1,4 +1,5 @@
 import axios from "axios"
+import axiosInstance from "./interceptors";
 
 const API_URL = "http://localhost:8080/api";
 
@@ -12,12 +13,17 @@ export const getBooks = async () => {
    return response.data;
 };
 
-export const getBookById = async (id, token) => {
+/* export const getBookById = async (id, token) => {
    const response = await axios.get(`${API_URL}/book/id=${id}`, {
       headers: {
          Authorization: `Bearer ${token}`
       }
    });
+   return response.data;
+}; */
+
+export const getBookById = async (id) => {
+   const response = await axiosInstance.get(`/book/id=${id}`);
    return response.data;
 };
 
@@ -36,3 +42,16 @@ export const createBook = async (book, token) => {
       throw new Error("Error!");
    }
 };
+
+/* export const refreshToken = async (longToken) => {
+   try {
+      const response = await axios.get(``, {
+         headers: {
+            Authorization: `Bearer ${longToken}`
+         }
+      });
+      return response.data;
+   } catch (error) {
+      throw error;
+   }
+} */

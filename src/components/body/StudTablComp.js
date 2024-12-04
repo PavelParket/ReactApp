@@ -2,19 +2,19 @@ import StudentTable from "./StudentTable";
 import Form from "./Form";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteStudent } from '../../actions/studActions';
-import useAuthCheck from "../../hooks/useAuthCheck";
-import { useEffect } from "react";
+//import useAuthCheck from "../../hooks/useAuthCheck";
+//import { useEffect } from "react";
 
 export default function StudTablComp() {
    const dispatch = useDispatch();
    const students = useSelector(state => state.students.students);
-   const isValidToken = useAuthCheck();
+   //const isValidToken = useAuthCheck();
 
-   useEffect(() => {
+   /* useEffect(() => {
       isValidToken();
    },
       [isValidToken]
-   );
+   ); */
 
    const handleDelete = (id) => {
       dispatch(deleteStudent(id));

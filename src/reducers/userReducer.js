@@ -6,6 +6,7 @@ const initialState = {
       username: null,
       role: null,
       token: null,
+      longToken: null,
       tokenExpiry: null,
    },
 };
@@ -15,19 +16,15 @@ const userSlice = createSlice({
    initialState,
    reducers: {
       signIn(state, action) {
-         const { username, role, token, tokenExpiry } = action.payload;
+         const { username, role, token, longToken, tokenExpiry } = action.payload;
          Object.assign(state.user, {
             loggedIn: true,
             username,
             role,
             token,
+            longToken,
             tokenExpiry,
          });
-         /* state.user.loggedIn = true;
-         state.user.username = username;
-         state.user.role = role;
-         state.user.token = token;
-         state.user.tokenExpiry = tokenExpiry; */
       },
       signOut(state) {
          Object.assign(state.user, {
@@ -35,13 +32,9 @@ const userSlice = createSlice({
             username: null,
             role: null,
             token: null,
+            longToken: null,
             tokenExpiry: null,
          });
-         /* state.user.loggedIn = false;
-         state.user.username = null;
-         state.user.role = null;
-         state.user.token = null;
-         state.tokenExpiry = null; */
       },
       isValidToken(state) {
          if (state.tokenExpiry && Date.now() > state.tokenExpiry) {
@@ -50,13 +43,9 @@ const userSlice = createSlice({
                username: null,
                role: null,
                token: null,
+               longToken: null,
             });
             state.tokenExpiry = null;
-            /* state.user.loggedIn = true;
-            state.user.username = null;
-            state.user.role = null;
-            state.user.token = null;
-            state.tokenExpiry = null; */
          }
       },
    },
