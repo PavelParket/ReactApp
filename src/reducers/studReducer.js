@@ -1,4 +1,4 @@
-import { ADD_STUDENT, DELETE_STUDENT } from "../actions/studActions";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
    students: [
@@ -12,22 +12,25 @@ const initialState = {
    maxId: 6,
 };
 
-const studentReducer = (state = initialState, action) => {
-   switch (action.type) {
-      case ADD_STUDENT:
-         return {
-            ...state,
-            students: [...state.students, action.payload],
-            maxId: Math.max(state.maxId, action.payload.id),
+const studentSlice = createSlice({
+   name: "students",
+   initialState,
+   reducers: {
+      addStudent(state, action) {
+         const newStudent = {
+            ...action.payload,
+            id: state.maxId + 1
          };
-      case DELETE_STUDENT:
-         return {
-            ...state,
-            students: state.students.filter(student => student.id !== action.payload),
-         };
-      default:
-         return state;
-   }
-};
+         state.students.push(newStudent);
+         state.maxId += 1;
+      },
 
-export default studentReducer;
+      deleteStudent(state, action) {
+         state.students = state.students.filter(student => student.id !== action.payload);
+      },
+   },
+});
+
+export const { addStudent, deleteStudent } = studentSlice.actions;
+
+export default studentSlice.reducer;

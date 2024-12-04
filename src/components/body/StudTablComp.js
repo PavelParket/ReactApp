@@ -1,7 +1,7 @@
 import StudentTable from "./StudentTable";
 import Form from "./Form";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteStudent } from '../../actions/studActions';
+import { deleteStudent } from "../../reducers/studReducer";
 //import useAuthCheck from "../../hooks/useAuthCheck";
 //import { useEffect } from "react";
 
