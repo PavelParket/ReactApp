@@ -7,7 +7,6 @@ const initialState = {
       role: null,
       token: null,
       longToken: null,
-      tokenExpiry: null,
    },
 };
 
@@ -16,14 +15,13 @@ const userSlice = createSlice({
    initialState,
    reducers: {
       signIn(state, action) {
-         const { username, role, token, longToken, tokenExpiry } = action.payload;
+         const { username, role, token, longToken } = action.payload;
          Object.assign(state.user, {
             loggedIn: true,
             username,
             role,
             token,
             longToken,
-            tokenExpiry,
          });
       },
       signOut(state) {
@@ -33,24 +31,11 @@ const userSlice = createSlice({
             role: null,
             token: null,
             longToken: null,
-            tokenExpiry: null,
          });
-      },
-      isValidToken(state) {
-         if (state.tokenExpiry && Date.now() > state.tokenExpiry) {
-            Object.assign(state.user, {
-               loggedIn: false,
-               username: null,
-               role: null,
-               token: null,
-               longToken: null,
-            });
-            state.tokenExpiry = null;
-         }
       },
    },
 });
 
-export const { signIn, signOut, isValidToken } = userSlice.actions;
+export const { signIn, signOut } = userSlice.actions;
 
 export default userSlice.reducer;

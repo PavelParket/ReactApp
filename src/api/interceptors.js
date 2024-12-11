@@ -1,6 +1,6 @@
 import axios from "axios";
 import { signIn } from "../reducers/userReducer";
-import store from "../store";
+import { store } from "../store";
 
 const API_URL = "http://localhost:8080/api";
 
