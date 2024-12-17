@@ -1,19 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./reducers/rootReducer";
-import storage from "redux-persist/lib/storage";
-import { persistReducer, persistStore } from "redux-persist";
-
-const persistConfig = {
-   key: 'root',
-   storage,
-};
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+import apiSlice from "./api/apiSlice";
+import { setupListeners } from "@reduxjs/toolkit/query";
 
 const store = configureStore({
-   reducer: persistedReducer,
+   reducer: rootReducer,
+   middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
-const persistor = persistStore(store);
+setupListeners(store.dispatch);
 
-export { store, persistor };
+export default store;

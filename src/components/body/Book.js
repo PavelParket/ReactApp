@@ -1,29 +1,10 @@
 import { useParams } from "react-router-dom";
 import "./bodyCss/book.css"
-import { getBookById } from "../../api/api";
-import { useQuery } from "react-query";
+import { useGetBookByIdQuery } from "../../api/apiSlice";
 
 export default function Book() {
    const { id } = useParams();
-   const { data: book, error, isLoading } = useQuery(["book", id], () => getBookById(id), {
-      staleTime: 60000,
-      cacheTime: 300000,
-   })
-   /* const [book, setBook] = useState(null);
-   const [error, setError] = useState(null); */
-
-   /* useEffect(() => {
-      const printBook = async () => {
-         try {
-            const book = await getBookById(id);
-            setBook(book);
-         } catch (error) {
-            setError("Book not found");
-         }
-      };
-
-      printBook();
-   }, [id]); */
+   const { data: book, error, isLoading } = useGetBookByIdQuery(id);
 
    if (isLoading) {
       return <p>Loading...</p>;

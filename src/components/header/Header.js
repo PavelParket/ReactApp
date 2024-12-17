@@ -3,7 +3,6 @@ import logo from "./headerCss/logo.svg"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signOut } from "../../reducers/userReducer";
-import { persistor } from "../../store";
 
 export default function Header() {
    const dispatch = useDispatch();
@@ -11,7 +10,6 @@ export default function Header() {
 
    const handleSignOut = () => {
       dispatch(signOut());
-      persistor.purge();
    }
 
    return (

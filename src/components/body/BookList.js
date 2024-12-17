@@ -1,14 +1,10 @@
 import "./bodyCss/bookList.css"
 import BookCard from "./BookCard";
 import { Link } from "react-router-dom";
-import { getBooks } from "../../api/api";
-import { useQuery } from "react-query";
+import { useGetBooksQuery } from "../../api/apiSlice";
 
 export default function BookList() {
-   const { data: books, error, isLoading } = useQuery("books", getBooks, {
-      staleTime: 60000,
-      cacheTime: 300000,
-   });
+   const { data: books, error, isLoading } = useGetBooksQuery();
 
    if (isLoading) {
       return <p>Loading...</p>;
